@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tessoly — Know before you sign.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --plum: #6B2D5B;
+      --plum-dark: #521F46;
+      --rose: #D4A0B9;
+      --rose-light: #F0D6E5;
+      --cream: #FDF8F5;
+      --sage: #7A9E7E;
+      --sage-light: #C5DBC7;
+      --gold: #C4956A;
+      --gold-light: #EDD9C3;
+      --gray-100: #F4F4F4;
+      --gray-200: #E5E5E5;
+      --gray-500: #6B7280;
+      --gray-700: #374151;
+      --red: #DC2626;
+      --red-light: #FEE2E2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--gray-700);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .logo {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid var(--rose-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--plum);
+      text-decoration: none;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      border: none;
+    }
+
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-plum { background: var(--plum); color: #fff; }
+    .btn-outline { background: transparent; color: var(--plum); border: 2px solid var(--plum); }
+    .btn-white { background: #fff; color: var(--plum); }
+    .btn-gold { background: var(--gold); color: #fff; }
+    .btn-sage { background: var(--sage); color: #fff; }
+
+    .btn-lg { padding: 14px 30px; font-size: 1rem; border-radius: 10px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--plum) 0%, #8B3A77 60%, var(--rose) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 90px 24px 80px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 620px;
+      margin: 0 auto 36px;
+      opacity: 0.92;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 80px 24px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--plum);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--gray-500);
+      font-size: 1.05rem;
+      margin-bottom: 52px;
+    }
+
+    /* ── BEFORE/AFTER ── */
+    .preview-section { background: #fff; }
+
+    .preview-card {
+      background: var(--cream);
+      border: 1px solid var(--rose-light);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(107,45,91,0.08);
+    }
+
+    .preview-header {
+      background: var(--plum);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 16px 28px;
+    }
+
+    .preview-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    @media (max-width: 700px) {
+      .preview-cols { grid-template-columns: 1fr; }
+    }
+
+    .preview-col {
+      padding: 28px;
+    }
+
+    .preview-col + .preview-col {
+      border-left: 1px solid var(--rose-light);
+    }
+
+    @media (max-width: 700px) {
+      .preview-col + .preview-col {
+        border-left: none;
+        border-top: 1px solid var(--rose-light);
+      }
+    }
+
+    .preview-col-label {
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .preview-col-label.before { color: var(--red); }
+    .preview-col-label.after { color: var(--sage); }
+
+    .preview-note {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--gray-700);
+      background: #fff;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      border: 1px solid var(--gray-200);
+      min-height: 120px;
+    }
+
+    .score-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .score-pill {
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .score-red { background: var(--red-light); color: var(--red); }
+    .score-green { background: #D1FAE5; color: #065F46; }
+
+    /* ── VALUE PROPS ── */
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .value-card {
+      background: #fff;
+      border: 1px solid var(--rose-light);
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(107,45,91,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .value-card:hover {
+      box-shadow: 0 6px 24px rgba(107,45,91,0.12);
+      transform: translateY(-3px);
+    }
+
+    .value-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 20px;
+    }
+
+    .icon-gold { background: var(--gold-light); }
+    .icon-plum { background: var(--rose-light); }
+    .icon-sage { background: var(--sage-light); }
+
+    .value-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--plum);
+      margin-bottom: 10px;
+    }
+
+    .value-card p {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      line-height: 1.65;
+    }
+
+    /* ── MONTHLY VALUE TRACKER ── */
+    .tracker-section { background: var(--cream); }
+
+    .tracker-card {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--sage-light);
+      box-shadow: 0 4px 24px rgba(122,158,126,0.12);
+    }
+
+    .tracker-header {
+      background: var(--sage);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 24px;
+      letter-spacing: 0.01em;
+    }
+
+    .tracker-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    @media (max-width: 640px) {
+      .tracker-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .tracker-stat {
+      padding: 28px 16px;
+      text-align: center;
+      border-right: 1px solid var(--gray-200);
+    }
+
+    .tracker-stat:last-child { border-right: none; }
+
+    @media (max-width: 640px) {
+      .tracker-stat:nth-child(2) { border-right: none; }
+      .tracker-stat:nth-child(3) { border-right: 1px solid var(--gray-200); border-top: 1px solid var(--gray-200); }
+      .tracker-stat:nth-child(4) { border-top: 1px solid var(--gray-200); border-right: none; }
+    }
+
+    .tracker-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--plum);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .tracker-stat-value.green { color: var(--sage); }
+
+    .tracker-stat-label {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .tracker-footer {
+      background: #F9FBF9;
+      border-top: 1px solid var(--gray-200);
+      padding: 12px 24px;
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      text-align: center;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background: #fff; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+      position: relative;
+    }
+
+    .step {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--plum);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+
+    .step h3 {
+      font-size: 1.15rem;
+      color: var(--plum);
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+    }
+
+    /* ── PRICING ── */
+    .pricing-section { background: var(--cream); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border: 2px solid var(--rose-light);
+      border-radius: 16px;
+      padding: 36px 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 12px rgba(107,45,91,0.05);
+      transition: box-shadow 0.2s;
+    }
+
+    .pricing-card:hover {
+      box-shadow: 0 8px 28px rgba(107,45,91,0.12);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--plum);
+      box-shadow: 0 8px 32px rgba(107,45,91,0.16);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--plum);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .pricing-tier {
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--plum);
+      margin-bottom: 8px;
+    }
+
+    .pricing-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--gray-700);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pricing-price span {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gray-500);
+    }
+
+    .pricing-desc {
+      font-size: 0.88rem;
+      color: var(--gray-500);
+      margin-bottom: 24px;
+      min-height: 36px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 32px;
+      flex: 1;
+    }
+
+    .pricing-features li {
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--gray-100);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .pricing-features li:last-child { border-bottom: none; }
+
+    .check {
+      color: var(--sage);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pricing-btn { width: 100%; text-align: center; margin-top: auto; }
+
+    /* ── TRUST ── */
+    .trust-section { background: #fff; }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .trust-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .trust-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--rose-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .trust-item h3 {
+      font-size: 1rem;
+      color: var(--plum);
+      margin-bottom: 4px;
+    }
+
+    .trust-item p {
+      font-size: 0.88rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ── FINAL CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--plum) 0%, #8B3A77 100%);
+      color: #fff;
+      text-align: center;
+      padding: 90px 24px;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .cta-section p {
+      font-size: 1.05rem;
+      opacity: 0.88;
+      margin-bottom: 36px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--gray-700);
+      color: #D1D5DB;
+      padding: 40px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: #D1D5DB;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--rose); }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: #9CA3AF;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .hero { padding: 60px 16px 56px; }
+      .section { padding: 56px 16px; }
+      .btn-lg { padding: 12px 22px; font-size: 0.95rem; }
+      .pricing-card { padding: 28px 20px; }
+      .value-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Tessoly</a>
+    <a href="#APP_URL_HERE" class="btn btn-plum">Try It Free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">Built for Behavioral Health Providers</div>
+  <h1>Know before you sign.</h1>
+  <p>Tessoly checks your visit notes for billing gaps, weak documentation, and safety risks — before they become audit findings or lost revenue.</p>
+  <div class="hero-buttons">
+    <a href="#APP_URL_HERE" class="btn btn-white btn-lg">Try It on Your Next Note</a>
+    <a href="#pricing" class="btn btn-outline btn-lg" style="color:#fff; border-color:rgba(255,255,255,0.6);">See Pricing</a>
+  </div>
+</section>
+
+<!-- BEFORE/AFTER -->
+<section class="section preview-section">
+  <div class="section-inner">
+    <h2 class="section-title">What Tessoly Catches</h2>
+    <p class="section-sub">Paste your note. Tessoly scores it, flags what's missing, and rewrites it to meet documentation standards.</p>
+    <div class="preview-card">
+      <div class="preview-header">Live Preview — Psychiatry Follow-Up</div>
+      <div class="preview-cols">
+        <div class="preview-col">
+          <div class="preview-col-label before">Before Tessoly</div>
+          <div class="preview-note">Follow-up for GAD. Anxiety improved. Sleeping 7 hours. Denies SI/HI. MSE normal. Continue sertraline 50mg. Follow up 4 weeks.</div>
+          <div class="score-row">
+            Documentation Score: <span class="score-pill score-red">40%</span>
+          </div>
+          <p style="font-size:0.82rem;color:#9CA3AF;margin-top:8px;">Missing: HPI detail, full MSE, assessment rationale, plan specifics</p>
+        </div>
+        <div class="preview-col">
+          <div class="preview-col-label after">After Tessoly</div>
+          <div class="preview-note">
+            <strong>HPI:</strong> Ms. J returns for follow-up of GAD (F41.1). Reports anxiety 4/10, down from 7/10 last visit. Sleep improved to ~7 hrs/night. No change in stressors. Tolrating sertraline 50mg without side effects.<br/><br/>
+            <strong>MSE:</strong> Alert, cooperative. Speech normal rate/rhythm. Mood "better," affect congruent, euthymic range. No SI/HI. Insight and judgment intact.<br/><br/>
+            <strong>Assessment:</strong> GAD (F41.1) — improving with current regimen.<br/><br/>
+            <strong>Plan:</strong> Continue sertraline 50mg daily. Patient educated on sleep hygiene. Return in 4 weeks or sooner if needed.
+          </div>
+          <div class="score-row">
+            Documentation Score: <span class="score-pill score-green">92%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section class="section" style="background:var(--cream);">
+  <div class="section-inner">
+    <h2 class="section-title">Why providers use Tessoly</h2>
+    <p class="section-sub">Documentation that protects you, supports your patients, and captures what you earned.</p>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon icon-gold">💰</div>
+        <h3>Capture the right revenue</h3>
+        <p>Tessoly identifies documentation gaps that cause underbilling, so you receive fair reimbursement for the complexity of care you actually delivered.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon icon-plum">🛡️</div>
+        <h3>Defensible documentation</h3>
+        <p>Every note you sign should withstand an audit. Tessoly flags missing elements before you sign — not after a payer inquiry arrives.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon icon-sage">⚡</div>
+        <h3>Fix notes in seconds</h3>
+        <p>Paste, review, and use the suggested rewrite. The whole workflow takes under a minute — and the improved note is ready to copy into your EHR.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONTHLY VALUE TRACKER -->
+<section class="section tracker-section">
+  <div class="section-inner">
+    <h2 class="section-title">See your impact every month</h2>
+    <p class="section-sub">Tessoly tracks notes analyzed, improvements made, and your estimated billing upside over time.</p>
+    <div class="tracker-card">
+      <div class="tracker-header">Monthly Value Tracker — April 2026</div>
+      <div class="tracker-stats">
+        <div class="tracker-stat">
+          <div class="tracker-stat-value">42</div>
+          <div class="tracker-stat-label">Notes Analyzed</div>
+        </div>
+        <div class="tracker-stat">
+          <div class="tracker-stat-value">31</div>
+          <div class="tracker-stat-label">Notes Improved</div>
+        </div>
+        <div class="tracker-stat">
+          <div class="tracker-stat-value">18</div>
+          <div class="tracker-stat-label">Potential Higher-Level Visits</div>
+        </div>
+        <div class="tracker-stat">
+          <div class="tracker-stat-value green">+$720</div>
+          <div class="tracker-stat-label">Estimated Revenue Impact</div>
+        </div>
+      </div>
+      <div class="tracker-footer">Estimated billing upside supported by documentation improvements this month</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section">
+  <div class="section-inner">
+    <h2 class="section-title">Simple as paste, review, sign.</h2>
+    <p class="section-sub">No EHR integration required. No setup. Just your note and a better version of it.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Paste your note</h3>
+        <p>Copy your draft note from any EHR or text editor and paste it into Tessoly. No formatting required.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>See what's missing</h3>
+        <p>Tessoly scores your note, flags documentation gaps, and suggests the appropriate billing code with a plain-language explanation.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Fix and sign</h3>
+        <p>Use the AI-assisted rewrite or address the flagged items yourself. Copy the improved note back into your EHR and sign with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner">
+    <h2 class="section-title">Simple, transparent pricing</h2>
+    <p class="section-sub">Start free. Upgrade when you're ready. No contracts, cancel anytime.</p>
+    <div class="pricing-grid">
+
+      <!-- Starter -->
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-price">Free</div>
+        <div class="pricing-desc">10 notes per month — no credit card required.</div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> 10 notes/month</li>
+          <li><span class="check">✓</span> Documentation scoring</li>
+          <li><span class="check">✓</span> Billing code suggestions</li>
+          <li><span class="check">✓</span> Missing item detection</li>
+          <li><span class="check">✓</span> AI-assisted rewrite</li>
+        </ul>
+        <a href="#APP_URL_HERE" class="btn btn-outline pricing-btn">Get Started Free</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="pricing-card featured">
+        <div class="popular-badge">Most Popular</div>
+        <div class="pricing-tier">Pro</div>
+        <div class="pricing-price">$49 <span>/ month</span></div>
+        <div class="pricing-desc">Unlimited notes. Everything you need for a full caseload.</div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Unlimited notes/month</li>
+          <li><span class="check">✓</span> Documentation scoring</li>
+          <li><span class="check">✓</span> Billing code suggestions</li>
+          <li><span class="check">✓</span> Missing item detection</li>
+          <li><span class="check">✓</span> AI-assisted rewrite</li>
+          <li><span class="check">✓</span> Monthly Value Tracker</li>
+          <li><span class="check">✓</span> Telemedicine code support</li>
+        </ul>
+        <a href="#APP_URL_HERE" class="btn btn-plum pricing-btn btn-lg">Upgrade to Pro</a>
+      </div>
+
+      <!-- Early Access -->
+      <div class="pricing-card">
+        <div class="pricing-tier" style="color:var(--gold);">Early Access</div>
+        <div class="pricing-price">$29 <span>/ month</span></div>
+        <div class="pricing-desc">Founder pricing — limited spots. Lock in your rate forever.</div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Everything in Pro</li>
+          <li><span class="check">✓</span> Locked-in founder rate</li>
+          <li><span class="check">✓</span> Early access to new features</li>
+          <li><span class="check">✓</span> Direct feedback channel</li>
+        </ul>
+        <a href="#APP_URL_HERE" class="btn btn-gold pricing-btn">Claim Early Access</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section trust-section">
+  <div class="section-inner">
+    <h2 class="section-title">Built for real clinical workflows</h2>
+    <p class="section-sub">Tessoly is a documentation assistant, not a decision-maker. You remain in charge.</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div>
+          <h3>Deterministic guardrails</h3>
+          <p>Billing suggestions follow rule-based logic, not AI improvisation. Codes are derived from documented evidence — never inflated.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🩺</div>
+        <div>
+          <h3>Supports your judgment</h3>
+          <p>Tessoly suggests — you decide. Every recommendation is advisory. Final clinical and billing decisions always rest with you.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">👩‍⚕️</div>
+        <div>
+          <h3>Built by a provider</h3>
+          <p>Tessoly was designed by someone who has sat with patients, navigated MDM tables, and signed notes under pressure. It's built for how you actually work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <h2>Never underbill or sign a weak note again.</h2>
+  <p>Join behavioral health providers who trust Tessoly to check their documentation before they sign.</p>
+  <a href="#APP_URL_HERE" class="btn btn-white btn-lg">Try It Free</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Tessoly</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="mailto:support@tessoly.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Tessoly. All rights reserved. Tessoly is a documentation support tool. It does not provide medical, legal, or billing advice. Final documentation and coding decisions are the responsibility of the licensed provider.</div>
+  </div>
+</footer>
+
+</body>
+</html>
