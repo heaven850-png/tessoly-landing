@@ -663,7 +663,7 @@
       position:relative;
       width:100%;
       padding-bottom:56.25%;
-      background:#1a1a1a;
+      background:#F2E4EC;
       border-radius:16px;
       overflow:hidden;
       box-shadow:0 4px 24px rgba(107,45,91,0.08);
@@ -674,13 +674,40 @@
         position:absolute;
         inset:0;
         display:flex;
+        flex-direction:column;
         align-items:center;
         justify-content:center;
-        color:#9CA3AF;
+        gap:16px;
         font-family:'Inter',sans-serif;
-        font-size:0.95rem;
-        letter-spacing:0.02em;
-      ">Video coming soon</div>
+      ">
+        <div style="
+          width:64px;
+          height:64px;
+          border-radius:50%;
+          background:var(--plum);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          box-shadow:0 4px 16px rgba(107,45,91,0.25);
+        ">
+          <span style="
+            display:inline-block;
+            width:0;
+            height:0;
+            border-top:12px solid transparent;
+            border-bottom:12px solid transparent;
+            border-left:20px solid #fff;
+            margin-left:4px;
+          "></span>
+        </div>
+        <p style="
+          margin:0;
+          font-size:0.9rem;
+          font-weight:600;
+          color:var(--plum);
+          letter-spacing:0.02em;
+        ">Video coming soon</p>
+      </div>
     </div>
     <p style="text-align:center;margin-top:18px;font-size:0.88rem;color:var(--gray-500);">No setup. Paste your note, review, improve, sign.</p>
   </div>
