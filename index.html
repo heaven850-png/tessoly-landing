@@ -140,8 +140,9 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(150deg, #2a2420 0%, #3d3530 55%, #4a3f38 100%);
-      color: #fff;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
       padding: 80px 24px 72px;
     }
     .hero-inner {
@@ -163,8 +164,8 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--muted);
+      border: 1px solid var(--line);
       padding: 5px 13px;
       border-radius: 100px;
       margin-bottom: 22px;
@@ -173,11 +174,11 @@
       font-size: clamp(2.6rem, 6vw, 4rem);
       line-height: 1.12;
       margin-bottom: 20px;
-      color: #fff;
+      color: var(--ink);
     }
     .hero p {
       font-size: clamp(1rem, 2.5vw, 1.15rem);
-      color: rgba(255,255,255,0.8);
+      color: var(--ink-2);
       max-width: 540px;
       margin-bottom: 36px;
       font-family: var(--font-sans);
@@ -187,11 +188,12 @@
     /* Hero score card */
     .hero-score-card {
       background: var(--card);
+      border: 1px solid var(--line);
       border-radius: 16px;
       padding: 24px 28px;
       width: 240px;
       flex-shrink: 0;
-      box-shadow: 0 24px 48px rgba(0,0,0,0.25);
+      box-shadow: 6px 6px 0 var(--warm-2), 0 2px 12px rgba(42,36,32,0.08);
     }
     .hero-score-label {
       font-family: var(--font-mono);
@@ -356,29 +358,31 @@
     }
 
     /* ── WHY CARDS ── */
-    .why-section { background: var(--card); }
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .why-section { background: var(--paper); padding: 96px 24px; }
+    .why-section .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
     .why-card {
-      background: var(--paper);
+      background: var(--card);
       border: 1px solid var(--line);
+      border-top-width: 4px;
       border-radius: 14px;
-      padding: 32px 28px;
+      padding: 40px 32px;
       transition: box-shadow 0.2s, transform 0.2s;
     }
-    .why-card:hover { box-shadow: 0 8px 28px rgba(42,36,32,0.09); transform: translateY(-2px); }
+    .why-card:hover { box-shadow: 0 10px 32px rgba(42,36,32,0.10); transform: translateY(-3px); }
     .why-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
+      width: 64px; height: 64px;
+      border-radius: 16px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 18px;
+      font-size: 1.9rem;
+      margin-bottom: 22px;
     }
     .why-card h3 {
-      font-size: 1.15rem;
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
       color: var(--ink);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
-    .why-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
+    .why-card p { font-size: 1rem; color: var(--muted); line-height: 1.7; }
 
     /* ── TRACKER ── */
     .tracker-section { background: var(--paper); }
@@ -650,8 +654,8 @@
       <h1>Know before<br>you sign.</h1>
       <p>Tessoly reviews your visit notes for documentation gaps, billing support, and safety risks — before you sign.</p>
       <div class="hero-buttons">
-        <a href="https://app.tessoly.com" class="btn btn-white btn-lg">Try It Free</a>
-        <a href="#pricing" class="btn btn-lg" style="color:rgba(255,255,255,0.8);border:1.5px solid rgba(255,255,255,0.35);background:transparent;">See Pricing</a>
+        <a href="https://app.tessoly.com" class="btn btn-primary btn-lg">Try It Free</a>
+        <a href="#pricing" class="btn btn-ghost btn-lg">See Pricing</a>
       </div>
     </div>
     <div class="hero-score-card">
@@ -702,11 +706,9 @@
           <span class="ba-score bad">60 / 100</span>
         </div>
         <div class="ba-body">
-          <p class="ba-note">Follow-up for GAD and depression. Anxiety improved. Sleeping 7 hours. Denies SI/HI. MSE normal. Continue sertraline 50mg. Follow up 4 weeks.</p>
+          <p class="ba-note">Established patient, 34F, follow-up for generalized anxiety disorder. Anxiety improved. Denies SI/HI. MSE unremarkable. Therapy Start: 1230, Therapy End: 1250. Continue sertraline 50mg. Follow up in 4 weeks.</p>
           <div class="ba-pills">
             <span class="ba-pill missing">✗ medication mgmt</span>
-            <span class="ba-pill missing">✗ therapy time</span>
-            <span class="ba-pill missing">✗ assessment reasoning</span>
           </div>
         </div>
       </div>
@@ -716,14 +718,12 @@
       <div class="ba-col">
         <div class="ba-head">
           <span class="ba-head-label after">After Tessoly</span>
-          <span class="ba-score good">91 / 100</span>
+          <span class="ba-score good">81 / 100</span>
         </div>
         <div class="ba-body">
-          <p class="ba-note"><strong>HPI:</strong> Ms. J returns for follow-up of GAD (F41.1) and MDD (F33.1). Reports anxiety 4/10, improved from 7/10. Sleep 7 hrs/night. Tolerating sertraline 50mg without side effects.<br><br><strong>Assessment:</strong> GAD and MDD — improving on current regimen. No medication changes indicated at this time.<br><br><strong>Plan:</strong> Continue sertraline 50mg. Supportive therapy provided (1230–1250). RTC 4 weeks.</p>
+          <p class="ba-note"><strong>HPI:</strong> Ms. J, 34F, established patient, returns for follow-up of generalized anxiety disorder (F41.1). Reports anxiety improved to 4/10, down from 7/10 last visit. Denies SI/HI. MSE unremarkable.<br><br><strong>Medication Management:</strong> Sertraline 50mg — tolerating well, no adverse effects noted, no medication changes at this time.<br><br><strong>Assessment:</strong> GAD, improving on current regimen.<br><br><strong>Plan:</strong> Continue sertraline 50mg. Supportive therapy provided (Therapy Start: 1230, Therapy End: 1250, 20 min). RTC 4 weeks.</p>
           <div class="ba-pills">
             <span class="ba-pill added">✓ medication mgmt</span>
-            <span class="ba-pill added">✓ therapy time</span>
-            <span class="ba-pill added">✓ assessment reasoning</span>
           </div>
         </div>
       </div>
@@ -737,17 +737,17 @@
     <h2 class="section-title">Why providers use Tessoly</h2>
     <p class="section-sub">Documentation that protects you, supports your patients, and captures what you earned.</p>
     <div class="why-grid">
-      <div class="why-card">
+      <div class="why-card" style="border-top-color:var(--accent);">
         <div class="why-icon" style="background:var(--accent-soft);">📋</div>
         <h3>Know before you sign</h3>
         <p>Get a documentation score and gap analysis before you finalize the note — not after a payer inquiry arrives.</p>
       </div>
-      <div class="why-card">
+      <div class="why-card" style="border-top-color:var(--ok);">
         <div class="why-icon" style="background:var(--ok-soft);">🛡️</div>
         <h3>Codes you can defend</h3>
         <p>Billing suggestions come with plain-language rationale. Every code is derived from what's actually in the note — never inflated.</p>
       </div>
-      <div class="why-card">
+      <div class="why-card" style="border-top-color:var(--gold);">
         <div class="why-icon" style="background:var(--gold-light);">✏️</div>
         <h3>See what changed</h3>
         <p>Compare your original note to the refined version side-by-side, with additions highlighted so you stay in control of every word.</p>
@@ -837,8 +837,7 @@
       </div>
 
       <!-- Early Access -->
-      <div class="pricing-card featured">
-        <div class="featured-badge">Limited Spots</div>
+      <div class="pricing-card">
         <div class="pricing-tier gold">Early Access</div>
         <div class="pricing-price">$29 <span>/ month</span></div>
         <div class="pricing-desc">Founder pricing — lock in your rate forever.</div>
@@ -852,11 +851,12 @@
           <li><span class="check">✓</span> Locked-in founder rate</li>
           <li><span class="check">✓</span> Early access to new features</li>
         </ul>
-        <a href="https://app.tessoly.com" class="btn btn-gold pricing-btn btn-lg">Claim Early Access</a>
+        <a href="https://app.tessoly.com" class="btn btn-outline pricing-btn" style="border-color:var(--gold);color:var(--gold);">Claim Early Access <span style="font-family:var(--font-mono);font-size:0.7rem;font-weight:700;letter-spacing:0.06em;background:var(--gold-light);color:var(--gold);padding:1px 7px;border-radius:8px;margin-left:6px;">Limited</span></a>
       </div>
 
       <!-- Pro -->
-      <div class="pricing-card">
+      <div class="pricing-card featured">
+        <div class="featured-badge">Most Popular</div>
         <div class="pricing-tier">Pro</div>
         <div class="pricing-price">$49 <span>/ month</span></div>
         <div class="pricing-desc">Unlimited notes. Everything for a full caseload.</div>
@@ -869,7 +869,7 @@
           <li><span class="check">✓</span> Telemedicine code support</li>
           <li><span class="check">✓</span> Priority support</li>
         </ul>
-        <a href="https://app.tessoly.com" class="btn btn-primary pricing-btn">Upgrade to Pro</a>
+        <a href="https://app.tessoly.com" class="btn btn-primary pricing-btn btn-lg">Upgrade to Pro</a>
       </div>
 
     </div>
