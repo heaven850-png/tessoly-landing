@@ -384,8 +384,50 @@
     }
     .why-card p { font-size: 1rem; color: var(--muted); line-height: 1.7; }
 
+    /* ── BEFORE/AFTER extra ── */
+    .ba-code-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .ba-code-chip {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      border-top-width: 2px;
+    }
+    .ba-code-chip.em    { border-color: #b8d4f8; border-top-color: #4a9eff; background: #eef6ff; color: #1a5fa0; }
+    .ba-code-chip.tele  { border-color: #d4c4f0; border-top-color: #7c5cbf; background: #f3eeff; color: #5a3d9a; }
+    .ba-code-chip.addon { border-color: #f5c0e8; border-top-color: #c44da8; background: #fef0fb; color: #a0307e; }
+    .ba-sign-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .ba-sign-item {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--ok-ink);
+      background: var(--ok-soft);
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
     /* ── TRACKER ── */
-    .tracker-section { background: var(--paper); }
+    .tracker-section { background: var(--paper); padding: 96px 24px; }
+    .tracker-section .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
     .tracker-card {
       max-width: 780px;
       margin: 0 auto;
@@ -424,7 +466,7 @@
     }
     @media (max-width: 600px) { .tracker-stats { grid-template-columns: repeat(2, 1fr); } }
     .tracker-stat {
-      padding: 26px 16px;
+      padding: 36px 20px;
       text-align: center;
       border-right: 1px solid var(--line);
     }
@@ -436,7 +478,7 @@
     }
     .tracker-val {
       font-family: var(--font-serif);
-      font-size: 2rem;
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
       color: var(--accent-ink);
       line-height: 1;
       margin-bottom: 6px;
@@ -652,7 +694,7 @@
     <div>
       <div class="hero-badge">Built for Behavioral Health Providers</div>
       <h1>Know before<br>you sign.</h1>
-      <p>Tessoly reviews your visit notes for documentation gaps, billing support, and safety risks — before you sign.</p>
+      <p>Tessoly reviews your visit notes for documentation gaps, billing support, and safety risks before you sign.</p>
       <div class="hero-buttons">
         <a href="https://app.tessoly.com" class="btn btn-primary btn-lg">Try It Free</a>
         <a href="#pricing" class="btn btn-ghost btn-lg">See Pricing</a>
@@ -721,9 +763,22 @@
           <span class="ba-score good">81 / 100</span>
         </div>
         <div class="ba-body">
-          <p class="ba-note"><strong>HPI:</strong> Ms. J, 34F, established patient, returns for follow-up of generalized anxiety disorder (F41.1). Reports anxiety improved to 4/10, down from 7/10 last visit. Denies SI/HI. MSE unremarkable.<br><br><strong>Medication Management:</strong> Sertraline 50mg — tolerating well, no adverse effects noted, no medication changes at this time.<br><br><strong>Assessment:</strong> GAD, improving on current regimen.<br><br><strong>Plan:</strong> Continue sertraline 50mg. Supportive therapy provided (Therapy Start: 1230, Therapy End: 1250, 20 min). RTC 4 weeks.</p>
+          <p class="ba-note">Ms. J, 34F, established patient, returns for follow-up of generalized anxiety disorder (F41.1). Reports anxiety improved to 4/10, down from 7/10 last visit. Denies SI/HI. MSE unremarkable.<br><br>Sertraline 50mg — tolerating well, no adverse effects noted. No medication changes at this time. GAD improving on current regimen. Continue sertraline 50mg. Supportive therapy provided 1230–1250 (20 min). RTC 4 weeks.</p>
           <div class="ba-pills">
             <span class="ba-pill added">✓ medication mgmt</span>
+          </div>
+          <div class="ba-code-chips">
+            <span class="ba-code-chip em">99213 · in-person</span>
+            <span class="ba-code-chip tele">98005 · telehealth</span>
+            <span class="ba-code-chip addon">90833 · therapy add-on</span>
+          </div>
+          <div class="ba-sign-row">
+            <span class="ba-sign-item">✓ Assessment</span>
+            <span class="ba-sign-item">✓ Plan</span>
+            <span class="ba-sign-item">✓ Timeline</span>
+            <span class="ba-sign-item">✓ Safety review</span>
+            <span class="ba-sign-item">✓ Medication mgmt</span>
+            <span class="ba-sign-item">✓ Therapy documented</span>
           </div>
         </div>
       </div>
@@ -821,9 +876,9 @@
     <p class="section-sub">Start free. Upgrade when you're ready. No contracts, cancel anytime.</p>
     <div class="pricing-grid">
 
-      <!-- Free -->
+      <!-- Free (Starter) -->
       <div class="pricing-card">
-        <div class="pricing-tier">Free</div>
+        <div class="pricing-tier">Starter</div>
         <div class="pricing-price">$0 <span>/ month</span></div>
         <div class="pricing-desc">10 notes per month — no credit card required.</div>
         <ul class="pricing-features">
@@ -834,6 +889,24 @@
           <li><span class="check">✓</span> AI-assisted rewrite</li>
         </ul>
         <a href="https://app.tessoly.com" class="btn btn-outline pricing-btn">Get Started Free</a>
+      </div>
+
+      <!-- Pro (featured, middle) -->
+      <div class="pricing-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="pricing-tier">Pro</div>
+        <div class="pricing-price">$49 <span>/ month</span></div>
+        <div class="pricing-desc">Unlimited notes. Everything for a full caseload.</div>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Unlimited notes/month</li>
+          <li><span class="check">✓</span> Full documentation scoring</li>
+          <li><span class="check">✓</span> Billing code suggestions</li>
+          <li><span class="check">✓</span> AI-assisted rewrite</li>
+          <li><span class="check">✓</span> Monthly Value Tracker</li>
+          <li><span class="check">✓</span> Telemedicine code support</li>
+          <li><span class="check">✓</span> Priority support</li>
+        </ul>
+        <a href="https://app.tessoly.com" class="btn btn-primary pricing-btn btn-lg">Upgrade to Pro</a>
       </div>
 
       <!-- Early Access -->
@@ -851,25 +924,8 @@
           <li><span class="check">✓</span> Locked-in founder rate</li>
           <li><span class="check">✓</span> Early access to new features</li>
         </ul>
-        <a href="https://app.tessoly.com" class="btn btn-outline pricing-btn" style="border-color:var(--gold);color:var(--gold);">Claim Early Access <span style="font-family:var(--font-mono);font-size:0.7rem;font-weight:700;letter-spacing:0.06em;background:var(--gold-light);color:var(--gold);padding:1px 7px;border-radius:8px;margin-left:6px;">Limited</span></a>
-      </div>
-
-      <!-- Pro -->
-      <div class="pricing-card featured">
-        <div class="featured-badge">Most Popular</div>
-        <div class="pricing-tier">Pro</div>
-        <div class="pricing-price">$49 <span>/ month</span></div>
-        <div class="pricing-desc">Unlimited notes. Everything for a full caseload.</div>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span> Unlimited notes/month</li>
-          <li><span class="check">✓</span> Full documentation scoring</li>
-          <li><span class="check">✓</span> Billing code suggestions</li>
-          <li><span class="check">✓</span> AI-assisted rewrite</li>
-          <li><span class="check">✓</span> Monthly Value Tracker</li>
-          <li><span class="check">✓</span> Telemedicine code support</li>
-          <li><span class="check">✓</span> Priority support</li>
-        </ul>
-        <a href="https://app.tessoly.com" class="btn btn-primary pricing-btn btn-lg">Upgrade to Pro</a>
+        <a href="https://app.tessoly.com" class="btn btn-outline pricing-btn" style="border-color:var(--gold);color:var(--gold);">Claim Early Access</a>
+        <p style="text-align:center;margin-top:10px;font-family:var(--font-mono);font-size:0.68rem;font-weight:700;color:var(--gold);letter-spacing:0.04em;">23 of 100 spots left</p>
       </div>
 
     </div>
