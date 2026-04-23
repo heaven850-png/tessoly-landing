@@ -550,16 +550,23 @@
       flex-direction: column;
     }
     .pricing-card.featured {
-      border-color: var(--accent);
-      box-shadow: 0 8px 32px rgba(42,36,32,0.10);
+      background: #2a2420;
+      border-color: #2a2420;
+      box-shadow: 0 12px 40px rgba(42,36,32,0.22);
     }
+    .pricing-card.featured .pricing-tier { color: #b25030; }
+    .pricing-card.featured .pricing-price { color: #faf5ec; }
+    .pricing-card.featured .pricing-price span { color: #8a7d72; }
+    .pricing-card.featured .pricing-desc { color: #c7cdc9; }
+    .pricing-card.featured .pricing-features li { color: #d8cfc4; border-bottom-color: #3d3530; }
+    .pricing-card.featured .check { color: #b25030; }
     .featured-badge {
       position: absolute;
       top: -13px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--accent);
-      color: #fff;
+      background: #b25030;
+      color: #faf5ec;
       font-family: var(--font-mono);
       font-size: 0.68rem;
       font-weight: 700;
@@ -608,32 +615,42 @@
     .pricing-btn { width: 100%; text-align: center; margin-top: auto; }
 
     /* ── TRUST ── */
-    .trust-section { background: var(--card); }
-    .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
-    .trust-item { display: flex; gap: 16px; align-items: flex-start; }
+    .trust-section { background: var(--card); padding: 100px 24px; }
+    .trust-section .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+    .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 32px;
+    }
     .trust-icon {
-      width: 44px; height: 44px;
-      border-radius: 10px;
+      width: 48px; height: 48px;
+      border-radius: 12px;
       background: var(--accent-soft);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       flex-shrink: 0;
     }
-    .trust-item h3 { font-size: 1rem; color: var(--ink); margin-bottom: 4px; }
-    .trust-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+    .trust-item h3 { font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .trust-item p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
 
     /* ── WHO THIS IS FOR ── */
-    .who-section { background: var(--accent-soft); padding: 80px 24px; }
+    .who-section { background: #ede6d5; padding: 100px 24px; }
+    .who-section .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
     .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
     .who-card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 24px 22px;
+      border-radius: 14px;
+      padding: 28px;
     }
-    .who-card .who-icon { font-size: 1.5rem; margin-bottom: 12px; }
-    .who-card h3 { font-size: 1rem; color: var(--ink); margin-bottom: 8px; line-height: 1.4; }
-    .who-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+    .who-card .who-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .who-card h3 { font-family: var(--font-serif); font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--ink); margin-bottom: 10px; line-height: 1.35; }
+    .who-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
 
     /* ── CTA ── */
     .cta-section {
@@ -923,7 +940,7 @@
           <li><span class="check">✓</span> Telemedicine code support</li>
           <li><span class="check">✓</span> Priority support</li>
         </ul>
-        <a href="https://app.tessoly.com" class="btn btn-primary pricing-btn btn-lg">Upgrade to Pro</a>
+        <a href="https://app.tessoly.com" class="btn pricing-btn btn-lg" style="background:#b25030;color:#faf5ec;">Upgrade to Pro</a>
       </div>
 
       <!-- Early Access -->
