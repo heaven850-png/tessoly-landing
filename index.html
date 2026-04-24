@@ -924,6 +924,12 @@
   <div class="section-inner">
     <h2 class="section-title">Simple, transparent pricing</h2>
     <p class="section-sub">Start free. Upgrade when you're ready. No contracts, cancel anytime.</p>
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <div style="display: inline-flex; background: var(--line-2); border-radius: 10px; padding: 4px; border: 1px solid var(--line);">
+        <button onclick="togglePricing('monthly')" id="btn-monthly" style="padding: 0.5rem 1.5rem; border-radius: 8px; border: none; font-weight: 600; font-size: 0.9rem; cursor: pointer; background: var(--ink); color: var(--paper); transition: all 0.2s; font-family: var(--font-sans);">Monthly</button>
+        <button onclick="togglePricing('annual')" id="btn-annual" style="padding: 0.5rem 1.5rem; border-radius: 8px; border: none; font-weight: 600; font-size: 0.9rem; cursor: pointer; background: transparent; color: var(--muted); transition: all 0.2s; font-family: var(--font-sans);">Annual <span style="color: var(--ok); font-size: 0.8rem; font-weight: 700;">Save 2 months</span></button>
+      </div>
+    </div>
     <div class="pricing-grid">
 
       <!-- Free (Starter) -->
@@ -945,7 +951,7 @@
       <div class="pricing-card featured">
         <div class="featured-badge">Most Popular</div>
         <div class="pricing-tier">Pro</div>
-        <div class="pricing-price">$49 <span>/ month</span></div>
+        <div class="pricing-price"><span class="price-monthly">$49</span><span class="price-annual" style="display:none;">$490</span> <span><span class="period-monthly">/ month</span><span class="period-annual" style="display:none;">/ year</span></span></div>
         <div class="pricing-desc">Unlimited notes. Everything for a full caseload.</div>
         <ul class="pricing-features">
           <li><span class="check">✓</span> Unlimited notes/month</li>
@@ -964,7 +970,7 @@
       <div class="pricing-card" style="position:relative;">
         <div class="featured-badge gold">Founder Pricing</div>
         <div class="pricing-tier gold">Early Access</div>
-        <div class="pricing-price">$29 <span>/ month</span></div>
+        <div class="pricing-price"><span class="price-monthly">$29</span><span class="price-annual" style="display:none;">$290</span> <span><span class="period-monthly">/ month</span><span class="period-annual" style="display:none;">/ year</span></span></div>
         <div class="pricing-desc">Temporary pricing. Lock in your rate forever.</div>
         <ul class="pricing-features">
           <li><span class="check">✓</span> Unlimited notes/month</li>
@@ -983,6 +989,12 @@
       </div>
 
     </div>
+    <div style="text-align: center; margin-top: 1.5rem; padding: 1.25rem 1.5rem; border: 1px dashed var(--line); border-radius: 12px; background: var(--card);">
+      <p style="font-size: 0.95rem; color: var(--muted); font-family: var(--font-sans); line-height: 1.5;">
+        <strong style="color: var(--ink); font-weight: 600;">Team &amp; Enterprise</strong> — For practices and organizations needing centralized admin, usage reporting, SSO, compliance review, and BAA support.
+        <a href="mailto:erica@tessoly.com" style="color: var(--accent); font-weight: 600; text-decoration: underline; margin-left: 4px;">Contact sales</a>
+      </p>
+    </div>
   </div>
 </section>
 
@@ -991,6 +1003,9 @@
   <div class="section-inner">
     <h2 class="section-title">Built for real clinical workflows</h2>
     <p class="section-sub">Tessoly is a documentation assistant, not a decision-maker. You remain in charge.</p>
+    <div style="text-align: center; margin-bottom: 1.5rem; padding: 0.85rem 1.5rem; background: rgba(196,149,106,0.08); border-radius: 10px; border: 1px solid var(--line);">
+      <p style="font-size: 0.95rem; color: var(--ink); font-family: var(--font-sans); line-height: 1.5;"><strong>82% of clinicians</strong> cite lack of trust as a barrier to using AI. Tessoly is built to earn that trust.</p>
+    </div>
     <div class="trust-grid">
       <div class="trust-item">
         <div class="trust-icon">🔒</div>
@@ -1011,6 +1026,27 @@
         <div>
           <h3>Conservative by design</h3>
           <p>Billing suggestions follow rule-based logic. Codes are derived from what's documented, never inflated. You decide, always.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📋</div>
+        <div>
+          <h3>Uses your source note only</h3>
+          <p>Refines what you documented. Never invents clinical facts or adds content you didn't provide.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">👁️</div>
+        <div>
+          <h3>Compare before you use it</h3>
+          <p>See your original note side-by-side with the refined version. Every change is visible and reviewable.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🎛️</div>
+        <div>
+          <h3>Clinician-controlled</h3>
+          <p>Tessoly suggests. You decide. It's a second set of eyes, not autonomous documentation.</p>
         </div>
       </div>
     </div>
@@ -1070,5 +1106,28 @@
   </div>
 </footer>
 
+<script>
+function togglePricing(mode) {
+  var monthlies = document.querySelectorAll('.price-monthly, .period-monthly');
+  var annuals = document.querySelectorAll('.price-annual, .period-annual');
+  var btnM = document.getElementById('btn-monthly');
+  var btnA = document.getElementById('btn-annual');
+  if (mode === 'annual') {
+    monthlies.forEach(function(el) { el.style.display = 'none'; });
+    annuals.forEach(function(el) { el.style.display = 'inline'; });
+    btnA.style.background = 'var(--ink)';
+    btnA.style.color = 'var(--paper)';
+    btnM.style.background = 'transparent';
+    btnM.style.color = 'var(--muted)';
+  } else {
+    monthlies.forEach(function(el) { el.style.display = 'inline'; });
+    annuals.forEach(function(el) { el.style.display = 'none'; });
+    btnM.style.background = 'var(--ink)';
+    btnM.style.color = 'var(--paper)';
+    btnA.style.background = 'transparent';
+    btnA.style.color = 'var(--muted)';
+  }
+}
+</script>
 </body>
 </html>
