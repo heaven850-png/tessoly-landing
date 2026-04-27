@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tessoly: Know before you sign.</title>
+  <title>Tessoly — Documentation, Billing, and Diagnosis Support Before You Sign</title>
+  <meta name="description" content="Tessoly helps behavioral health providers review billing codes, ICD-10 diagnoses, therapy documentation, and safety checks before signing every note." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -382,6 +383,10 @@
     .why-section { background: var(--paper); padding: 96px 24px; }
     .why-section .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
     .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+    .why-grid.why-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 720px) {
+      .why-grid.why-grid-4 { grid-template-columns: 1fr; }
+    }
     .why-card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -743,8 +748,8 @@
   <div class="hero-inner">
     <div>
       <div class="hero-badge">Built for Behavioral Health Providers</div>
-      <h1>Know before<br>you sign.</h1>
-      <p>Tessoly reviews your visit notes for documentation gaps, billing support, and safety risks before you sign.</p>
+      <h1>Documentation, billing, and diagnosis support<br>before you sign.</h1>
+      <p>Tessoly reviews your clinical notes for billing accuracy, ICD-10 diagnostic support, therapy code validation, safety documentation, and audit risk — so you sign every note with confidence.</p>
       <div class="hero-buttons">
         <a href="https://app.tessoly.com" class="btn btn-primary btn-lg">Try It Free</a>
         <a href="#pricing" class="btn btn-ghost btn-lg">See Pricing</a>
@@ -841,21 +846,26 @@
   <div class="section-inner">
     <h2 class="section-title">Why providers use Tessoly</h2>
     <p class="section-sub">Documentation that protects you, supports your patients, and captures what you earned.</p>
-    <div class="why-grid">
+    <div class="why-grid why-grid-4">
       <div class="why-card" style="border-top-color:var(--accent);">
-        <div class="why-icon" style="background:var(--accent-soft);">📋</div>
-        <h3>Know before you sign</h3>
-        <p>Get a documentation score and gap analysis before you finalize the note, not after a payer inquiry arrives.</p>
-      </div>
-      <div class="why-card" style="border-top-color:var(--ok);">
-        <div class="why-icon" style="background:var(--ok-soft);">🛡️</div>
-        <h3>Codes you can defend</h3>
-        <p>Billing suggestions come with plain-language rationale. Every code is derived from what's actually in the note, never inflated.</p>
+        <div class="why-icon" style="background:var(--accent-soft);">🧾</div>
+        <h3>Billing code validation</h3>
+        <p>Tessoly checks your E/M and add-on codes against documented MDM, time, and complexity. Every suggestion comes with plain-language rationale derived from what's actually in your note.</p>
       </div>
       <div class="why-card" style="border-top-color:var(--gold);">
-        <div class="why-icon" style="background:var(--gold-light);">✏️</div>
-        <h3>See what changed</h3>
-        <p>Compare your original note to the refined version side-by-side, with additions highlighted so you stay in control of every word.</p>
+        <div class="why-icon" style="background:var(--gold-light);">🩺</div>
+        <h3>ICD-10 diagnostic support</h3>
+        <p>Get diagnostic code suggestions, severity and recurrence checks, and DSM-5 criteria gaps before you finalize. Tessoly surfaces documentation patterns; you confirm the diagnosis.</p>
+      </div>
+      <div class="why-card" style="border-top-color:var(--ok);">
+        <div class="why-icon" style="background:var(--ok-soft);">📋</div>
+        <h3>Therapy billing review</h3>
+        <p>Validate therapy CPT codes against documented session time. Catch standalone vs. add-on conflicts, time mismatches, and audit-risk patterns before submission.</p>
+      </div>
+      <div class="why-card" style="border-top-color:var(--accent);">
+        <div class="why-icon" style="background:var(--accent-soft);">🛡️</div>
+        <h3>Safety and documentation review</h3>
+        <p>Tessoly flags safety screening gaps, documentation completeness, and the items most likely to attract payer or audit review — before you sign.</p>
       </div>
     </div>
   </div>
@@ -908,12 +918,12 @@
       <div class="step">
         <div class="step-num">2</div>
         <h3>Review the analysis</h3>
-        <p>Tessoly scores your documentation, flags gaps, and suggests a billing code with a plain-language explanation.</p>
+        <p>Get billing validation, ICD-10 support, therapy code review, safety checks, and a documentation score.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <h3>Copy the refined version</h3>
-        <p>Use the AI-assisted rewrite or address the flagged items yourself. Copy the improved note back to your EHR and sign.</p>
+        <p>Use Fix My Note to strengthen documentation, then sign knowing your note supports your billing and diagnosis.</p>
       </div>
     </div>
   </div>
@@ -941,6 +951,7 @@
           <li><span class="check">✓</span> 10 notes/month</li>
           <li><span class="check">✓</span> Documentation scoring</li>
           <li><span class="check">✓</span> Billing code suggestions</li>
+          <li><span class="check">✓</span> ICD-10 diagnostic support</li>
           <li><span class="check">✓</span> Missing item detection</li>
           <li><span class="check">✓</span> AI-assisted rewrite</li>
         </ul>
@@ -957,11 +968,12 @@
           <li><span class="check">✓</span> Unlimited notes/month</li>
           <li><span class="check">✓</span> Documentation scoring</li>
           <li><span class="check">✓</span> Billing code suggestions</li>
+          <li><span class="check">✓</span> ICD-10 diagnostic suggestions</li>
+          <li><span class="check">✓</span> Therapy billing review</li>
           <li><span class="check">✓</span> Missing item detection</li>
           <li><span class="check">✓</span> AI-assisted rewrite</li>
           <li><span class="check">✓</span> Monthly Value Tracker</li>
           <li><span class="check">✓</span> Telemedicine code support</li>
-          <li><span class="check">✓</span> Priority support</li>
         </ul>
         <a href="https://app.tessoly.com" class="btn btn-primary pricing-btn btn-lg">Upgrade to Pro →</a>
       </div>
@@ -1085,8 +1097,8 @@
 
 <!-- CTA BANNER -->
 <section class="cta-section">
-  <h2>Document the complexity<br><em>you actually delivered.</em></h2>
-  <p>Paste your note. Get a score, a gap list, and a refined draft. Sign with confidence.</p>
+  <h2>Strengthen documentation, review billing,<br><em>and catch issues before you sign.</em></h2>
+  <p>Paste your note. Get a billing, diagnosis, and documentation review with a refined draft. Sign with confidence.</p>
   <div class="cta-buttons">
     <a href="https://app.tessoly.com" class="btn btn-lg" style="background:var(--ink);color:var(--paper);">Try it free →</a>
     <a href="#demo" class="cta-text-link">Watch the demo</a>
