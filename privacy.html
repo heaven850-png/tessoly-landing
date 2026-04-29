@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Tessoly</title>
+  <meta name="description" content="Tessoly privacy policy: what we collect, how we use it, and what we don't do." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans:  'Inter Tight', system-ui, sans-serif;
+      --font-mono:  'JetBrains Mono', monospace;
+
+      --ink:        #2a2420;
+      --ink-2:      #4a3f38;
+      --muted:      #8a7d72;
+      --line:       #e8dfd3;
+      --paper:      #faf5ec;
+      --card:       #fffdf7;
+      --accent:     #b25030;
+    }
+
+    @supports (color: oklch(0 0 0)) {
+      :root {
+        --accent: oklch(0.62 0.11 28);
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink:    #e8ddd5;
+        --ink-2:  #c9bdb5;
+        --muted:  #7a6e65;
+        --line:   #3d3530;
+        --paper:  #1a1614;
+        --card:   #211d1b;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; color: var(--ink); }
+
+    nav {
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .logo-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .nav-back {
+      font-size: 0.95rem;
+      color: var(--ink-2);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-back:hover { color: var(--ink); text-decoration: underline; }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .updated {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    .lede {
+      font-size: 1.05rem;
+      color: var(--ink-2);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    section p { color: var(--ink-2); margin-bottom: 12px; }
+    section p:last-child { margin-bottom: 0; }
+
+    section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    section li {
+      color: var(--ink-2);
+      padding: 8px 0 8px 22px;
+      position: relative;
+      line-height: 1.6;
+    }
+    section li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 18px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    section li strong { color: var(--ink); font-weight: 600; }
+
+    a { color: var(--accent); text-decoration: underline; }
+    a:hover { color: var(--ink); }
+
+    footer {
+      background: var(--ink);
+      padding: 44px 24px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--paper);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer-links a:hover { color: var(--paper); }
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.78rem;
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      main { padding: 40px 20px 72px; }
+      h1 { font-size: 2rem; }
+      section { padding: 22px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Tessoly<span class="logo-dot"></span></a>
+      <a href="index.html" class="nav-back">← Back to home</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated: April 2026</div>
+
+    <p class="lede">
+      Tessoly is built for clinicians, and we treat the trust you place in us — and the data you bring with you — with the same care you'd expect from any tool inside your clinical workflow. This policy describes exactly what we collect, why, and what we will never do with it.
+    </p>
+
+    <section>
+      <h2>What we collect</h2>
+      <ul>
+        <li><strong>Email address</strong> — used to create your account and sign you in.</li>
+        <li><strong>Account credentials</strong> — securely managed through our authentication provider.</li>
+        <li><strong>Clinical note text</strong> — processed in real time to generate documentation and billing feedback. Note text is never stored permanently on our servers.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How we use it</h2>
+      <p>
+        We use the information you provide solely to deliver the Tessoly service: analyzing your visit notes and returning documentation, billing code, and ICD-10 feedback. Account information is used to authenticate you, manage your subscription, and communicate service-related updates.
+      </p>
+    </section>
+
+    <section>
+      <h2>What we don't do</h2>
+      <ul>
+        <li>We do not sell your data — to anyone, ever.</li>
+        <li>We do not share your data with third parties for marketing or advertising.</li>
+        <li>We do not store note text after analysis. Notes are processed in memory and discarded.</li>
+        <li>We do not use your notes to train AI models, ours or anyone else's.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Data security</h2>
+      <ul>
+        <li>All traffic is encrypted in transit using TLS.</li>
+        <li>We use Supabase for authentication only — it does not store note text.</li>
+        <li>No protected health information (PHI) is stored on our systems.</li>
+        <li>Access to operational systems is limited to authorized personnel.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy or how we handle your data?
+        Reach us at <a href="mailto:hello@tessoly.com">hello@tessoly.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Tessoly</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:hello@tessoly.com">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026 Tessoly. All rights reserved. Tessoly is a documentation support tool. It does not provide medical, legal, or billing advice. Final documentation and coding decisions are the responsibility of the licensed provider.</div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Tessoly</title>
+  <meta name="description" content="Tessoly terms of service: scope, responsibilities, and disclaimers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans:  'Inter Tight', system-ui, sans-serif;
+      --font-mono:  'JetBrains Mono', monospace;
+
+      --ink:        #2a2420;
+      --ink-2:      #4a3f38;
+      --muted:      #8a7d72;
+      --line:       #e8dfd3;
+      --paper:      #faf5ec;
+      --card:       #fffdf7;
+      --accent:     #b25030;
+    }
+
+    @supports (color: oklch(0 0 0)) {
+      :root {
+        --accent: oklch(0.62 0.11 28);
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink:    #e8ddd5;
+        --ink-2:  #c9bdb5;
+        --muted:  #7a6e65;
+        --line:   #3d3530;
+        --paper:  #1a1614;
+        --card:   #211d1b;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; color: var(--ink); }
+
+    nav {
+      background: var(--card);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .logo-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .nav-back {
+      font-size: 0.95rem;
+      color: var(--ink-2);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-back:hover { color: var(--ink); text-decoration: underline; }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .updated {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    .lede {
+      font-size: 1.05rem;
+      color: var(--ink-2);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    section p { color: var(--ink-2); margin-bottom: 12px; }
+    section p:last-child { margin-bottom: 0; }
+
+    section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    section li {
+      color: var(--ink-2);
+      padding: 8px 0 8px 22px;
+      position: relative;
+      line-height: 1.6;
+    }
+    section li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 18px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    section li strong { color: var(--ink); font-weight: 600; }
+
+    a { color: var(--accent); text-decoration: underline; }
+    a:hover { color: var(--ink); }
+
+    footer {
+      background: var(--ink);
+      padding: 44px 24px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--paper);
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer-links a:hover { color: var(--paper); }
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.78rem;
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      main { padding: 40px 20px 72px; }
+      h1 { font-size: 2rem; }
+      section { padding: 22px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Tessoly<span class="logo-dot"></span></a>
+      <a href="index.html" class="nav-back">← Back to home</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="eyebrow">Legal</div>
+    <h1>Terms of Service</h1>
+    <div class="updated">Last updated: April 2026</div>
+
+    <p class="lede">
+      These terms describe how Tessoly works, what it is — and what it isn't. By using the service, you agree to the terms below. They're written in plain language so there's no ambiguity about scope or responsibility.
+    </p>
+
+    <section>
+      <h2>What Tessoly is</h2>
+      <p>
+        Tessoly is a documentation support tool for licensed clinicians. It analyzes visit notes and returns suggestions to help strengthen documentation, surface coding considerations, and flag potential gaps.
+      </p>
+      <p>
+        Tessoly is <strong>not a medical device</strong>, electronic health record, or billing system. It is a writing and review aid.
+      </p>
+    </section>
+
+    <section>
+      <h2>Not medical, legal, or billing advice</h2>
+      <p>
+        Tessoly does not provide medical advice, legal advice, or billing advice. Output from the service is informational and is intended to support — not replace — the clinical, legal, and administrative judgment of a licensed professional.
+      </p>
+    </section>
+
+    <section>
+      <h2>Clinician review required</h2>
+      <ul>
+        <li>All suggestions, billing codes, and documentation feedback must be reviewed by a clinician before they are used, signed, or submitted.</li>
+        <li>You are responsible for verifying that any output is accurate, appropriate, and consistent with your patient's chart.</li>
+        <li>Tessoly does not generate signed clinical documentation on its own.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Your responsibilities</h2>
+      <p>
+        You — or the licensed provider on whose behalf the service is used — are solely responsible for final clinical and billing decisions, including diagnostic codes, procedure codes, medical necessity, and any documentation submitted to payers or stored in the patient record.
+      </p>
+    </section>
+
+    <section>
+      <h2>No guarantees</h2>
+      <ul>
+        <li>We make no guarantee that using Tessoly will improve reimbursement, prevent denials, or protect against audit findings.</li>
+        <li>The service is provided <strong>as-is</strong> and without warranties of any kind, express or implied, to the fullest extent permitted by law.</li>
+        <li>We are not liable for any clinical, financial, or administrative outcomes arising from use of the service.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Changes to these terms</h2>
+      <p>
+        We may update these terms from time to time. When we do, we'll update the &ldquo;Last updated&rdquo; date above and, for material changes, provide reasonable advance notice through the service or by email. Continued use of Tessoly after a change means you accept the revised terms.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Questions about these terms? Reach us at
+        <a href="mailto:hello@tessoly.com">hello@tessoly.com</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Tessoly</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:hello@tessoly.com">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026 Tessoly. All rights reserved. Tessoly is a documentation support tool. It does not provide medical, legal, or billing advice. Final documentation and coding decisions are the responsibility of the licensed provider.</div>
+    </div>
+  </footer>
+</body>
+</html>
