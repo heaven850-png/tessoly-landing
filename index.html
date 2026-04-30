@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tessoly — Documentation, Billing, and Diagnosis Support Before You Sign</title>
+  <title>Tessoly: Documentation, Billing, and Diagnosis Support Before You Sign</title>
   <meta name="description" content="Tessoly helps behavioral health providers review billing codes, ICD-10 diagnoses, therapy documentation, and safety checks before signing every note." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -383,7 +383,7 @@
     .why-section { background: var(--paper); padding: 96px 24px; }
     .why-section .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
     .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
-    .why-grid.why-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .why-grid.why-grid-4 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     @media (max-width: 720px) {
       .why-grid.why-grid-4 { grid-template-columns: 1fr; }
     }
@@ -748,24 +748,24 @@
   <div class="hero-inner">
     <div>
       <div class="hero-badge">Built for Behavioral Health Providers</div>
-      <h1>Know if your note actually supports your billing<br>before you sign it.</h1>
-      <p style="margin-bottom: 1rem;">Tessoly reviews your documentation, flags gaps, and shows what actually supports your billing and diagnosis — in seconds.</p>
-      <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 2rem; max-width: 560px; font-style: italic;">Short notes get signed every day that don't fully support billing — until they're reviewed.</p>
+      <h1>Know what your note supports<br>before you sign.</h1>
+      <p style="margin-bottom: 1rem;">Tessoly reviews your documentation, flags gaps, and shows what supports your billing, diagnosis, and therapy codes in seconds.</p>
+      <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 2rem; max-width: 560px; font-style: italic;">Most providers do not know what their notes are missing until someone reviews them.</p>
       <div class="hero-buttons">
         <a href="https://app.tessoly.com" class="btn btn-primary btn-lg">Try Your First 10 Notes Free</a>
         <a href="#pricing" class="btn btn-ghost btn-lg">See Pricing</a>
       </div>
     </div>
     <div class="hero-score-card">
-      <p class="hero-score-label">Sign Risk Score</p>
+      <p class="hero-score-label">Documentation Score</p>
       <div class="hero-score-num">91</div>
       <div class="hero-score-denom">/100</div>
       <div class="hero-score-bar"><div class="hero-score-bar-fill"></div></div>
-      <div class="hero-score-status">Ready to sign</div>
+      <div class="hero-score-status">Strong Support</div>
       <div class="hero-code-chips">
         <span class="hero-chip">99213</span>
-        <span class="hero-chip">98005</span>
         <span class="hero-chip">90833</span>
+        <span class="hero-chip">F41.1</span>
       </div>
     </div>
   </div>
@@ -796,31 +796,21 @@
   <div class="section-inner">
     <h2 class="section-title">Here's what most notes miss</h2>
     <p class="section-sub">Paste your note. Get a score, a gap analysis, and a refined draft, in seconds.</p>
-    <div style="max-width: 640px; margin: 0 auto 2rem; text-align: left;">
-      <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-        <div style="font-size: 0.95rem; color: var(--ink-2); display: flex; align-items: baseline; gap: 0.5rem;">
-          <span style="color: var(--accent); font-weight: 700;">•</span> Therapy time doesn't support billed code
-        </div>
-        <div style="font-size: 0.95rem; color: var(--ink-2); display: flex; align-items: baseline; gap: 0.5rem;">
-          <span style="color: var(--accent); font-weight: 700;">•</span> Diagnosis criteria not fully documented
-        </div>
-        <div style="font-size: 0.95rem; color: var(--ink-2); display: flex; align-items: baseline; gap: 0.5rem;">
-          <span style="color: var(--accent); font-weight: 700;">•</span> Missing support for higher-level billing
-        </div>
-        <div style="font-size: 0.95rem; color: var(--ink-2); display: flex; align-items: baseline; gap: 0.5rem;">
-          <span style="color: var(--accent); font-weight: 700;">•</span> Documentation gaps that trigger audits
-        </div>
-      </div>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 640px; margin: 0 auto 2rem;">
+      <div style="background: var(--card); border: 1px solid rgba(107, 45, 91, 0.06); border-radius: 12px; padding: 1.25rem; font-size: 0.92rem; color: var(--ink-2); text-align: center;">Therapy time does not support the billed code</div>
+      <div style="background: var(--card); border: 1px solid rgba(107, 45, 91, 0.06); border-radius: 12px; padding: 1.25rem; font-size: 0.92rem; color: var(--ink-2); text-align: center;">Diagnosis criteria are not fully documented</div>
+      <div style="background: var(--card); border: 1px solid rgba(107, 45, 91, 0.06); border-radius: 12px; padding: 1.25rem; font-size: 0.92rem; color: var(--ink-2); text-align: center;">Medication management support is too thin</div>
+      <div style="background: var(--card); border: 1px solid rgba(107, 45, 91, 0.06); border-radius: 12px; padding: 1.25rem; font-size: 0.92rem; color: var(--ink-2); text-align: center;">Therapeutic goals are missing or vague</div>
     </div>
     <div class="ba-grid">
       <!-- Before -->
       <div class="ba-col">
         <div class="ba-head">
           <span class="ba-head-label before">Before Tessoly</span>
-          <span class="ba-score bad">60 / 100</span>
+          <span class="ba-score bad">40 / 100</span>
         </div>
         <div class="ba-body">
-          <p class="ba-note">Established patient, 34F, follow-up for generalized anxiety disorder. Anxiety improved. Denies SI/HI. MSE unremarkable. Therapy Start: 1230, Therapy End: 1250. Continue sertraline 50mg. Follow up in 4 weeks.</p>
+          <p class="ba-note">Short note, unsupported therapy code, incomplete diagnostic support, and no therapeutic goals documented.</p>
           <div class="ba-pills">
             <span class="ba-pill missing">✗ medication mgmt</span>
           </div>
@@ -835,7 +825,7 @@
           <span class="ba-score good">81 / 100</span>
         </div>
         <div class="ba-body">
-          <p class="ba-note">Billing codes validated with time and MDM support. ICD-10 criteria checked against documented symptoms. Therapy code confirmed. A clear list of what to fix to reach 90–100%.</p>
+          <p class="ba-note">Gap list, billing review, ICD-10 review, therapeutic goal suggestions, and a refined note using supported content only.</p>
           <div class="ba-pills">
             <span class="ba-pill added">✓ medication mgmt</span>
           </div>
@@ -887,7 +877,12 @@
       <div class="why-card" style="border-top-color:var(--gold);">
         <div class="why-icon" style="background:var(--gold-light);">🎯</div>
         <h3>Therapeutic goals</h3>
-        <p>Detects whether treatment goals are documented and suggests specific, measurable goals based on your note — tailored to the diagnoses and interventions you documented.</p>
+        <p>Detects whether treatment goals are documented and suggests specific, measurable goals tailored to the diagnoses and interventions you documented.</p>
+      </div>
+      <div class="why-card" style="border-top-color:var(--ok);">
+        <div class="why-icon" style="background:var(--ok-soft);">📈</div>
+        <h3>Monthly Value Tracker</h3>
+        <p>Track notes reviewed, documentation improvements, billing-support improvements, and estimated revenue impact over time.</p>
       </div>
     </div>
   </div>
@@ -896,8 +891,8 @@
 <!-- MONTHLY VALUE TRACKER -->
 <section class="section tracker-section">
   <div class="section-inner">
-    <h2 class="section-title">See your impact every month <span style="font-family: 'Inter Tight', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--ok); vertical-align: middle;">(Coming Soon)</span></h2>
-    <p class="section-sub">A personal dashboard to show exactly how Tessoly is protecting your practice — launching soon.</p>
+    <h2 class="section-title">See your impact every month</h2>
+    <p class="section-sub">Track notes reviewed, documentation improvements, billing-support improvements, and estimated revenue impact as you use Tessoly.</p>
     <div class="tracker-card">
       <div class="tracker-meta">
         <span class="tracker-meta-label">Your month, so far · <span class="tracker-meta-month">April 2026</span></span>
@@ -940,7 +935,7 @@
       <div class="step">
         <div class="step-num">2</div>
         <h3>Review your results</h3>
-        <p>See your documentation score, billing codes, and a clear list of what to fix — with ICD-10, therapy billing, goals, and safety details in expandable sections.</p>
+        <p>See your documentation score, billing codes, and a clear list of what to fix, with ICD-10, therapy billing, goals, and safety details in expandable sections.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
@@ -996,7 +991,7 @@
           <li><span class="check">✓</span> Re-run and compare workflow</li>
         </ul>
         <a href="https://app.tessoly.com?plan=pro" class="btn btn-primary pricing-btn btn-lg">Upgrade to Pro →</a>
-        <p style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--muted);font-style:italic;">For providers who don't want to risk under-supported notes.</p>
+        <p style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--muted);font-style:italic;">For providers who do not want to risk under-supported notes.</p>
       </div>
 
       <!-- Early Access -->
@@ -1004,7 +999,8 @@
         <div class="featured-badge gold">Founder Pricing</div>
         <div class="pricing-tier gold">Early Access</div>
         <div class="pricing-price"><span class="price-monthly">$29</span><span class="price-annual" style="display:none;">$290</span> <span><span class="period-monthly">/ month</span><span class="period-annual" style="display:none;">/ year</span></span></div>
-        <div class="pricing-desc">Temporary pricing. Lock in your rate forever.</div>
+        <p style="text-align:center;margin:6px 0 14px;font-family:var(--font-mono);font-size:0.88rem;font-weight:700;color:#7a4f1a;background:#fdefd8;border:1px solid #f5d9a0;border-radius:8px;padding:6px 10px;letter-spacing:0.04em;">23 of 100 spots left</p>
+        <div class="pricing-desc">Lock in your rate while early access is open.</div>
         <ul class="pricing-features">
           <li><span class="check">✓</span> Unlimited notes/month</li>
           <li><span class="check">✓</span> Documentation scoring</li>
@@ -1017,15 +1013,14 @@
           <li><span class="check">✓</span> Early access to new features</li>
           <li><span class="check">✓</span> Direct line to the founder</li>
         </ul>
-        <a href="https://app.tessoly.com?plan=early_access" class="btn btn-outline pricing-btn" style="border-color:var(--gold);color:var(--gold);">Claim Early Access</a>
-        <p style="text-align:center;margin-top:12px;font-family:var(--font-mono);font-size:0.88rem;font-weight:700;color:#7a4f1a;background:#fdefd8;border:1px solid #f5d9a0;border-radius:8px;padding:6px 10px;letter-spacing:0.04em;">23 of 100 spots left</p>
+        <a href="https://app.tessoly.com?plan=early_access" class="btn btn-outline pricing-btn" style="border-color:var(--gold);color:var(--gold);">Claim Founder Pricing</a>
       </div>
 
     </div>
     <p style="text-align: center; color: var(--muted); font-size: 0.95rem; margin-top: 2rem; font-weight: 500;">Most providers see issues on their first note.</p>
     <div style="text-align: center; margin-top: 1.5rem; padding: 1.25rem 1.5rem; border: 1px dashed var(--line); border-radius: 12px; background: var(--card);">
       <p style="font-size: 0.95rem; color: var(--muted); font-family: var(--font-sans); line-height: 1.5;">
-        <strong style="color: var(--ink); font-weight: 600;">Team &amp; Enterprise</strong> — For practices and organizations needing centralized admin, usage reporting, SSO, compliance review, and BAA support.
+        <strong style="color: var(--ink); font-weight: 600;">Team &amp; Enterprise.</strong> For practices and organizations needing centralized admin, usage reporting, SSO, compliance review, and BAA support.
         <a href="mailto:erica@tessoly.com" style="color: var(--accent); font-weight: 600; text-decoration: underline; margin-left: 4px;">Contact sales</a>
       </p>
     </div>
@@ -1036,7 +1031,7 @@
 <section class="section trust-section">
   <div class="section-inner">
     <h2 class="section-title">Built for real clinical workflows</h2>
-    <p class="section-sub">Tessoly is a documentation assistant, not a decision-maker. You remain in charge.</p>
+    <p class="section-sub">Tessoly is a documentation review tool, not a decision-maker. You remain in control.</p>
     <div style="text-align: center; margin-bottom: 1.5rem; padding: 0.85rem 1.5rem; background: rgba(196,149,106,0.08); border-radius: 10px; border: 1px solid var(--line);">
       <p style="font-size: 0.95rem; color: var(--ink); font-family: var(--font-sans); line-height: 1.5;"><strong>82% of clinicians</strong> cite lack of trust as a barrier to using AI. Tessoly is built to earn that trust.</p>
     </div>
@@ -1052,7 +1047,7 @@
         <div class="trust-icon">🔒</div>
         <div>
           <h3>HIPAA-aligned infrastructure</h3>
-          <p>Tessoly is built on HIPAA-aligned infrastructure. BAA available on request for eligible plans.</p>
+          <p>Built with HIPAA-aligned safeguards. BAA support available for eligible plans as compliance infrastructure expands.</p>
         </div>
       </div>
       <div class="trust-item">
@@ -1095,8 +1090,8 @@
     <div class="who-grid">
       <div class="who-card">
         <div class="who-icon">🌙</div>
-        <h3>The clinician finishing notes at 9 pm</h3>
-        <p>You need a fast sanity check before you sign, not another documentation course.</p>
+        <h3>The clinician signing notes at 9 pm wondering if they're enough</h3>
+        <p>Get a fast review before you sign, not another documentation course.</p>
       </div>
       <div class="who-card">
         <div class="who-icon">🧘</div>
