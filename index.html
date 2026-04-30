@@ -756,13 +756,14 @@
         <a href="#pricing" class="btn btn-ghost btn-lg">See Pricing</a>
       </div>
       <p style="font-size: 0.85rem; color: var(--muted); margin-top: 1rem;">No credit card required for your first 10 notes.</p>
+      <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem;">Uses your note only. Never invents clinical information.</p>
     </div>
     <div class="hero-score-card">
       <p class="hero-score-label">Documentation Score</p>
       <div class="hero-score-num">91</div>
       <div class="hero-score-denom">/100</div>
       <div class="hero-score-bar"><div class="hero-score-bar-fill"></div></div>
-      <div class="hero-score-status">Strong Support</div>
+      <div class="hero-score-status">Supports documented billing</div>
       <div class="hero-code-chips">
         <span class="hero-chip">99213</span>
         <span class="hero-chip">90833</span>
@@ -776,7 +777,8 @@
 <section class="section video-section" id="demo">
   <div class="section-inner">
     <h2 class="section-title">Watch what Tessoly catches before you sign</h2>
-    <p class="section-sub" style="font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem;">Most providers are surprised by what it finds on their first note.</p>
+    <p class="section-sub" style="font-size: 0.95rem; color: var(--muted); margin-bottom: 0.5rem;">Most providers are surprised by what it finds on their first note.</p>
+    <p style="font-size: 0.9rem; color: var(--muted); margin: 0 0 1.5rem; text-align: center;">Run one of your own notes after watching.</p>
     <div class="video-grid">
       <div>
         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.12);">
@@ -797,10 +799,11 @@
   <div class="section-inner">
     <h2 class="section-title">Here's what most notes miss</h2>
     <p class="section-sub">Paste your note. Get a score, a gap analysis, and a refined draft, in seconds.</p>
+    <p style="font-size: 0.95rem; color: var(--muted); font-weight: 500; text-align: center; margin-bottom: 1.5rem;">These are the issues that usually go unnoticed until review, denial, or audit.</p>
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 720px; margin: 0 auto 2rem;">
       <div style="background: var(--card); border: 1px solid rgba(107, 45, 91, 0.06); border-radius: 12px; padding: 1.5rem 1.25rem; text-align: center;">
         <div style="font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Therapy time mismatch</div>
-        <div style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">Documented time does not support the billed CPT code.</div>
+        <div style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">Documented time does not support the billed code.</div>
       </div>
       <div style="background: var(--card); border: 1px solid rgba(107, 45, 91, 0.06); border-radius: 12px; padding: 1.5rem 1.25rem; text-align: center;">
         <div style="font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Diagnosis support gaps</div>
@@ -812,7 +815,7 @@
       </div>
       <div style="background: var(--card); border: 1px solid rgba(107, 45, 91, 0.06); border-radius: 12px; padding: 1.5rem 1.25rem; text-align: center;">
         <div style="font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Missing therapeutic goals</div>
-        <div style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">Goals are vague, absent, or not tied to treatment.</div>
+        <div style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">Goals are vague or not tied to treatment.</div>
       </div>
     </div>
     <div class="ba-grid">
@@ -823,7 +826,10 @@
           <span class="ba-score bad">40 / 100</span>
         </div>
         <div class="ba-body">
-          <p class="ba-note">Short note. 90837 billed with only 35 minutes documented. GAD and MDD named, but criteria are incomplete. No therapeutic goals documented.</p>
+          <p class="ba-note">Short note signed with a code it does not support.</p>
+          <div class="ba-code-chips">
+            <span class="ba-code-chip" style="border-color: var(--bad); border-top-color: var(--bad); background: var(--bad-soft); color: var(--bad);">90837 · billed but unsupported</span>
+          </div>
           <div class="ba-pills">
             <span class="ba-pill missing">✗ medication mgmt</span>
           </div>
@@ -838,7 +844,7 @@
           <span class="ba-score good">81 / 100</span>
         </div>
         <div class="ba-body">
-          <p class="ba-note">Tessoly flags the code mismatch, shows missing ICD-10 support, suggests measurable goals, and creates a refined note using supported content only.</p>
+          <p class="ba-note">Now clearly supported, with gaps identified and corrected before signing.</p>
           <div class="ba-pills">
             <span class="ba-pill added">✓ medication mgmt</span>
           </div>
@@ -864,7 +870,7 @@
 <!-- WHY CARDS -->
 <section class="section why-section">
   <div class="section-inner">
-    <h2 class="section-title">Why providers use Tessoly</h2>
+    <h2 class="section-title">What Tessoly protects you from</h2>
     <p class="section-sub">Documentation that protects you, supports your patients, and captures what you earned.</p>
     <div class="why-grid why-grid-4">
       <div class="why-card" style="border-top-color:var(--accent);">
@@ -899,6 +905,12 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- POSITIONING -->
+<section style="max-width: 640px; margin: 0 auto; padding: 2rem 2rem 4rem; text-align: center;">
+  <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 1.6rem; color: var(--ink); margin-bottom: 0.75rem;">Not a scribe. Not a note generator.</h2>
+  <p style="font-size: 1rem; color: var(--muted); line-height: 1.7;">Tessoly reviews your documentation before you sign. It shows what your note supports so you can decide.</p>
 </section>
 
 <!-- MONTHLY VALUE TRACKER -->
@@ -1024,6 +1036,7 @@
 
     </div>
     <p style="text-align: center; color: var(--muted); font-size: 0.95rem; margin-top: 2rem; font-weight: 500;">Most providers see issues on their first note.</p>
+    <p style="text-align: center; color: var(--muted); font-size: 0.92rem; margin-top: 0.5rem; font-weight: 500;">One missed code or unsupported note can cost more than a month of Tessoly.</p>
     <div style="text-align: center; margin-top: 1.5rem; padding: 1.25rem 1.5rem; border: 1px dashed var(--line); border-radius: 12px; background: var(--card);">
       <p style="font-size: 0.95rem; color: var(--muted); font-family: var(--font-sans); line-height: 1.5;">
         <strong style="color: var(--ink); font-weight: 600;">Team &amp; Enterprise.</strong> For practices and organizations needing centralized admin, usage reporting, SSO, compliance review, and BAA support.
